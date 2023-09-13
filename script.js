@@ -38,7 +38,6 @@ function bankAccount(accountNumber, name, type, balance) {
 
     this.deposit = function(amount) {
         amount = amount + this.balance;
-        // amount = this.balance;
         this.balance = amount;
         console.log(amount);
     }
@@ -46,7 +45,6 @@ function bankAccount(accountNumber, name, type, balance) {
     this.withdraw = function(amount) {
         if (amount <= this.balance) {
             this.balance = this.balance - amount;
-            // balance = this.balance;
             console.log(amount +" is withdrawn and the current balance is " + this.balance);
         } else if (amount > this.balance) {
             
@@ -60,9 +58,9 @@ function bankAccount(accountNumber, name, type, balance) {
     }
 
     this.isActive = function() {
-        if (type = "Active") {
+        if (this.type == "Active") {
             console.log("Active");
-        } else if ("Not Active") {
+        } else if (this.type == "Not Active") {
             console.log("Not Active");
         }
     }
@@ -77,5 +75,25 @@ BankAccount1.deposit(5000);
 BankAccount1.withdraw(2000);
 BankAccount1.checkBalance();
 BankAccount1.isActive();
+
+
+
+let BankAccount2 = new bankAccount(12345000, "Divya", "Active", 10000);
+
+console.log(BankAccount2);
+BankAccount2.deposit(2000);
+BankAccount2.withdraw(5000);
+BankAccount2.checkBalance();
+BankAccount2.isActive();
+
+
+
+let BankAccount3 = new bankAccount(1234500000, "Broodie", "Not Active", 0);
+
+console.log(BankAccount3);
+BankAccount3.deposit(5000);
+BankAccount3.withdraw(5000);
+BankAccount3.checkBalance();
+BankAccount3.isActive();
 
 
