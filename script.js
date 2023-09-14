@@ -54,14 +54,14 @@ function bankAccount(accountNumber, name, type, balance) {
     }
 
     this.checkBalance = function() {
-        console.log(this.balance);
+        return this.balance;
     }
 
     this.isActive = function() {
         if (this.type == "Active") {
-            console.log("Active");
+            return true;
         } else if (this.type == "Not Active") {
-            console.log("Not Active");
+            return false;
         }
     }
 
@@ -73,8 +73,8 @@ let BankAccount1 = new bankAccount(12345, "Nik", "Active", 1000);
 console.log(BankAccount1);
 BankAccount1.deposit(5000);
 BankAccount1.withdraw(2000);
-BankAccount1.checkBalance();
-BankAccount1.isActive();
+console.log(BankAccount1.checkBalance());
+console.log(BankAccount1.isActive());
 
 
 
@@ -83,8 +83,8 @@ let BankAccount2 = new bankAccount(12345000, "Divya", "Active", 10000);
 console.log(BankAccount2);
 BankAccount2.deposit(2000);
 BankAccount2.withdraw(5000);
-BankAccount2.checkBalance();
-BankAccount2.isActive();
+console.log(BankAccount2.checkBalance());
+console.log(BankAccount2.isActive());
 
 
 
@@ -93,7 +93,30 @@ let BankAccount3 = new bankAccount(1234500000, "Broodie", "Not Active", 0);
 console.log(BankAccount3);
 BankAccount3.deposit(5000);
 BankAccount3.withdraw(5000);
-BankAccount3.checkBalance();
-BankAccount3.isActive();
+console.log(BankAccount3.checkBalance());
+console.log(BankAccount3.isActive());
+
+
+let arr = [BankAccount1, BankAccount2, BankAccount3];
+
+function getTotalBalance(arr){
+    let sum=0;
+    for(let ele of arr){
+        if(ele.isActive()==true){
+            sum+=ele.checkBalance();
+        }
+    }
+    return sum;
+}
+
+console.log(getTotalBalance(arr));
+
+
+
+
+
+
+
+
 
 
